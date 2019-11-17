@@ -1,1 +1,1 @@
-GET /index    com.murali.sample.controllers.HomeController.index
+GET /    com.murali.sample.controllers.HomeController.index

@@ -6,8 +6,10 @@ import com.murali.sample.servers.ProductSource
 import org.scalatestplus.mockito.MockitoSugar
 import org.scalatestplus.play._
 import org.scalatestplus.play.guice._
-import play.api.test.Helpers._
+import play.api.libs.json.{JsArray, JsLookupResult, JsValue}
+import play.api.test.Helpers.{contentType, _}
 import play.api.test._
+import play.libs.Json
 
 class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting with MockitoSugar {
 
@@ -21,9 +23,10 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val result = controller.index().apply(FakeRequest(GET, "/index"))
 
       status(result) mustBe(200)
-      contentType(result) mustBe(Some("text/plain"))
-      contentAsString(result) must include("index")
+      contentType(result) mustBe(Some("application/json"))
+      val count = Json.parse(contentAsString(result)).size
 
+      count must be(7)
     }
 
     "render index page using inject" in {
@@ -31,18 +34,23 @@ class HomeControllerSpec extends PlaySpec with GuiceOneAppPerTest with Injecting
       val result = controller.index().apply(FakeRequest(GET, "/index"))
 
       status(result) mustBe(200)
-      contentType(result) mustBe(Some("text/plain"))
-      contentAsString(result) must include("index")
+
+      contentType(result) mustBe(Some("application/json"))
+      val count = Json.parse(contentAsString(result)).size
+
+      count must be(7)
     }
 
     "render index page from the router" in {
-      val request = FakeRequest(GET, "/index")
+      val request = FakeRequest(GET, "/")
 
       val result = route(app, request).get
 
       status(result) mustBe(200)
-      contentType(result) mustBe(Some("text/plain"))
-      contentAsString(result) must include("index")
+
+      contentType(result) mustBe(Some("application/json"))
+      val count = Json.parse(contentAsString(result)).size
+      count must be(7)
     }
 
   }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/play-basic.iml" filepath="$PROJECT_DIR$/.idea/play-basic.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-basic.iml" filepath="$PROJECT_DIR$/.idea/modules/play-basic.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-basic-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-basic-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-basic_579.iml" filepath="$PROJECT_DIR$/.idea/modules/play-basic_579.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/play-basic_579-build.iml" filepath="$PROJECT_DIR$/.idea/modules/play-basic_579-build.iml" />
