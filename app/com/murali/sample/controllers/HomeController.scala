@@ -6,14 +6,20 @@ import play.api._
 import play.api.mvc._
 
 @Singleton
-class HomeController @Inject() (cc: ControllerComponents, configuration: Configuration) extends AbstractController(cc){
+class HomeController @Inject() (cc: ControllerComponents,
+                                configuration: Configuration,
+                                productSource: ProductSource,
+                               ) extends AbstractController(cc){
 
   def index = Action {implicit request =>
     Ok(getRequest)
   }
 
   def getRequest (implicit request: Request[_]) = {
-    s"response from ${request.host}" + request.uri
+
+    val products = productSource.products
+
+    s"response from ${request.host}" + request.uri + products
   }
 
 }

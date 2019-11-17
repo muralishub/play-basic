@@ -10,7 +10,4 @@ class ProductSource {
     Product("3", "HP laptop"),
     Product("4", "Asus laptop")
   )
-
-
-
 }
