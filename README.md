@@ -2,7 +2,4 @@
 Basic play template
 
 
-one
-two
-three
-four
+first
