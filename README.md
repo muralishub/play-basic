@@ -3,3 +3,4 @@ Basic play template
 
 
 monday
+tuesday
